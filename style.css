@@ -1,0 +1,32 @@
+body {
+    background: black;
+    color: green;
+    font-family: 'Courier New', Courier, monospace;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+a {
+    color: inherit;
+}
+#logo {
+    display: block;
+    width: 150px;
+    height: auto;
+    margin: 40px auto 60px auto;
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    stroke-linejoin: round;
+    stroke-miterlimit: 2;
+}
+#LOCKUP {
+    fill: green
+}
+
+nav {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
