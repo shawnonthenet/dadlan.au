@@ -1,0 +1,33 @@
+name: Manage Codespaces
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform (start or stop)'
+        required: true
+        default: 'start'
+      codespace_name:
+        description: 'Name of the codespace to start/stop (leave blank to list available codespaces)'
+        required: false
+
+jobs:
+  manage-codespace:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Authenticate with GitHub CLI
+        run: gh auth login --with-token ${{ secrets.GH_TOKEN }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: List Codespaces if no codespace name provided
+        if: ${{ github.event.inputs.codespace_name == '' }}
+        run: gh codespace list --repo ${{ github.repository }}
+
+      - name: Start Codespace
+        if: ${{ github.event.inputs.action == 'start' && github.event.inputs.codespace_name != '' }}
+        run: gh codespace code --codespace ${{ github.event.inputs.codespace_name }}
+
+      - name: Stop Codespace
+        if: ${{ github.event.inputs.action == 'stop' && github.event.inputs.codespace_name != '' }}
+        run: gh codespace stop --codespace ${{ github.event.inputs.codespace_name }}
