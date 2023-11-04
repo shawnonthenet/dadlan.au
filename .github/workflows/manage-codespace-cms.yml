@@ -8,7 +8,7 @@ on:
         required: true
         default: 'start'
       codespace_name:
-        description: 'Name of the codespace to start/stop (leave blank to list available codespaces)'
+        description: 'Name of the codespace to start/stop. If left blank, the first codespace will be used if only one is available.'
         required: false
 
 jobs:
@@ -20,14 +20,31 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: List Codespaces if no codespace name provided
-        if: ${{ github.event.inputs.codespace_name == '' }}
-        run: gh codespace list --repo ${{ github.repository }}
+      - name: Determine Codespace to Manage
+        id: determine_codespace
+        run: |
+          codespaces=$(gh codespace list --repo ${{ github.repository }} --json name)
+          codespace_count=$(echo "$codespaces" | jq 'length')
+          echo "Codespace count: $codespace_count"
+          
+          # If no codespace name is provided and there is only one codespace, select it automatically.
+          if [ -z "${{ github.event.inputs.codespace_name }}" ] && [ "$codespace_count" -eq 1 ]; then
+            codespace_name=$(echo "$codespaces" | jq -r '.[0].name')
+            echo "::set-output name=selected_codespace::$codespace_name"
+          elif [ -z "${{ github.event.inputs.codespace_name }}" ] && [ "$codespace_count" -gt 1 ]; then
+            echo "Please specify a codespace name. Available codespaces:"
+            echo "$codespaces" | jq -r '.[].name'
+            exit 1
+          else
+            echo "::set-output name=selected_codespace::${{ github.event.inputs.codespace_name }}"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Start Codespace
-        if: ${{ github.event.inputs.action == 'start' && github.event.inputs.codespace_name != '' }}
-        run: gh codespace code --codespace ${{ github.event.inputs.codespace_name }}
+        if: ${{ github.event.inputs.action == 'start' }}
+        run: gh codespace code --codespace ${{ steps.determine_codespace.outputs.selected_codespace }}
 
       - name: Stop Codespace
-        if: ${{ github.event.inputs.action == 'stop' && github.event.inputs.codespace_name != '' }}
-        run: gh codespace stop --codespace ${{ github.event.inputs.codespace_name }}
+        if: ${{ github.event.inputs.action == 'stop' }}
+        run: gh codespace stop --codespace ${{ steps.determine_codespace.outputs.selected_codespace }}
