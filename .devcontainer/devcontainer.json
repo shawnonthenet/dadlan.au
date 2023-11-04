@@ -1,0 +1,4 @@
+{
+    "image":"mcr.microsoft.com/devcontainers/universal:2",
+    "postStartCommand": "npx --yes @williamparry/codespace-cms --siteRoot=src"
+}
