@@ -1,50 +1,65 @@
-name: Manage Codespaces
+name: Codespace Management Workflow
 
 on:
   workflow_dispatch:
     inputs:
-      action:
-        description: 'Action to perform (start or stop)'
+      codespace_action:
+        description: 'Action to perform: start or stop'
         required: true
-        default: 'start'
       codespace_name:
-        description: 'Name of the codespace to start/stop. If left blank, the first codespace will be used if only one is available.'
+        description: 'Name of the Codespace to manage (leave blank to auto-detect if there is only one)'
         required: false
 
 jobs:
-  manage-codespace:
+  manage_codespace:
     runs-on: ubuntu-latest
     steps:
-      - name: Authenticate with GitHub CLI
-        run: gh auth login --with-token ${{ secrets.GH_TOKEN }}
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Determine Codespace to Manage
+      - name: Authenticate with GitHub CLI
+        run: gh auth setup-git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get list of codespaces
+        id: list_codespaces
+        run: |
+          codespaces_list=$(gh codespace list -q ".[].name")
+          echo "::set-output name=codespaces_list::$codespaces_list"
+        shell: bash
+
+      - name: Determine codespace to manage
         id: determine_codespace
         run: |
-          codespaces=$(gh codespace list --repo ${{ github.repository }} --json name)
-          codespace_count=$(echo "$codespaces" | jq 'length')
-          echo "Codespace count: $codespace_count"
-          
-          # If no codespace name is provided and there is only one codespace, select it automatically.
-          if [ -z "${{ github.event.inputs.codespace_name }}" ] && [ "$codespace_count" -eq 1 ]; then
-            codespace_name=$(echo "$codespaces" | jq -r '.[0].name')
-            echo "::set-output name=selected_codespace::$codespace_name"
-          elif [ -z "${{ github.event.inputs.codespace_name }}" ] && [ "$codespace_count" -gt 1 ]; then
-            echo "Please specify a codespace name. Available codespaces:"
-            echo "$codespaces" | jq -r '.[].name'
-            exit 1
-          else
-            echo "::set-output name=selected_codespace::${{ github.event.inputs.codespace_name }}"
+          codespace_name="${{ github.event.inputs.codespace_name }}"
+          if [[ -z "$codespace_name" ]]; then
+            IFS=' ' read -r -a codespace_array <<< "${{ steps.list_codespaces.outputs.codespaces_list }}"
+            if [[ ${#codespace_array[@]} -eq 1 ]]; then
+              codespace_name=${codespace_array[0]}
+            else
+              echo "More than one codespace available, please specify the codespace name."
+              echo "::set-output name=selected_codespace::"
+              exit 1
+            fi
           fi
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          echo "Selected Codespace: $codespace_name"
+          echo "::set-output name=selected_codespace::$codespace_name"
+        shell: bash
 
-      - name: Start Codespace
-        if: ${{ github.event.inputs.action == 'start' }}
-        run: gh codespace code --codespace ${{ steps.determine_codespace.outputs.selected_codespace }}
-
-      - name: Stop Codespace
-        if: ${{ github.event.inputs.action == 'stop' }}
-        run: gh codespace stop --codespace ${{ steps.determine_codespace.outputs.selected_codespace }}
+      - name: Start or Stop Codespace
+        if: steps.determine_codespace.outputs.selected_codespace != ''
+        run: |
+          action="${{ github.event.inputs.codespace_action }}"
+          codespace_name="${{ steps.determine_codespace.outputs.selected_codespace }}"
+          if [ "$action" == "start" ]; then
+            gh codespace start -c "$codespace_name"
+          elif [ "$action" == "stop" ]; then
+            gh codespace stop -c "$codespace_name"
+          else
+            echo "Invalid action specified: $action"
+            exit 1
+          fi
+        shell: bash
+      - name: Print completion message
+        run: echo "Workflow completed successfully!"
