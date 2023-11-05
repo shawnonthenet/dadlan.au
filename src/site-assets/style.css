@@ -21,8 +21,17 @@ a {
     stroke-linejoin: round;
     stroke-miterlimit: 2;
 }
+#banner {
+    border: 1px solid green;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+}
 #LOCKUP {
     fill: green
+}
+#start-a-subnet {
+    margin-top: 15px;
 }
 @media only screen and (min-width: 1024px) {
     nav {
