@@ -30,13 +30,21 @@ a {
 #LOCKUP {
     fill: green
 }
-#start-a-subnet {
-    margin-top: 15px;
+.cols {
+    display: flex;
+    column-gap: 30px;
 }
-@media only screen and (min-width: 1024px) {
-    nav {
-        position: absolute;
-        top: 15px;
-        right: 15px;
+.cols div {
+    flex: 1;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+@media only screen and (max-width: 1024px) {
+    
+    .cols, .grid {
+        display: block;
     }
 }
