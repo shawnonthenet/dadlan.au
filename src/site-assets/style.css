@@ -23,6 +23,7 @@ a {
 }
 #banner {
     border: 1px solid green;
+    background: #f4f4f4;
     box-sizing: border-box;
     width: 100%;
     padding: 15px;
