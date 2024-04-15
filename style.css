@@ -11,11 +11,21 @@ body {
 a {
     color: inherit;
 }
+header {
+    display: flex;
+}
+header nav {
+    flex: 1;
+    align-items: flex-end;
+    text-align: right;
+}
+header nav a {
+    font-size: 22px;
+}
 #logo {
     display: block;
-    width: 150px;
+    width: 100px;
     height: auto;
-    margin: 40px auto 60px auto;
     fill-rule: evenodd;
     clip-rule: evenodd;
     stroke-linejoin: round;
@@ -43,9 +53,60 @@ a {
     grid-template-columns: 1fr 1fr;
     column-gap: 30px;
 }
+
+
+.active {
+    font-weight: bold;
+}
+
+.director-body {
+    display: flex;
+    column-gap: 25px;
+    align-items: flex-start;
+}
+
+.director-body img {
+    width: 200px;
+    object-fit: contain;
+}
+
+.director-body p {
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
 @media only screen and (max-width: 1024px) {
     
     .cols, .grid {
         display: block;
     }
+}
+
+@media only screen and (max-width: 768px) {
+
+    header {
+        display: flex;
+        align-items: center;
+    }
+    header nav {
+        flex: 1;
+        text-align: center;
+    }
+    header nav a {
+        font-size: 22px;
+    }
+
+    .director-body {
+        display: block;
+    }
+
+    .director-body img {
+        width: 100%;
+    }
+
 }
