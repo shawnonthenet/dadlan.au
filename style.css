@@ -38,11 +38,16 @@ header nav a {
 }
 
 #banner {
-    border: 2px solid green;
-    background: #151515;
+    border: 3px solid rgb(0, 165, 0);
+    background: green;
     box-sizing: border-box;
+    color: rgb(255, 255, 255);
     width: 100%;
     padding: 15px;
+}
+
+#banner a {
+    text-decoration: none;
 }
 
 #LOCKUP {
