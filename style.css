@@ -1,5 +1,5 @@
 body {
-    background: black;
+    background: rgb(10, 10, 10);
     color: green;
     font-family: 'Courier New', Courier, monospace;
     max-width: 800px;
@@ -8,20 +8,25 @@ body {
     font-size: 1.3rem;
     line-height: 1.3;
 }
+
 a {
     color: inherit;
 }
+
 header {
     display: flex;
 }
+
 header nav {
     flex: 1;
     align-items: flex-end;
     text-align: right;
 }
+
 header nav a {
     font-size: 22px;
 }
+
 #logo {
     display: block;
     width: 100px;
@@ -31,29 +36,33 @@ header nav a {
     stroke-linejoin: round;
     stroke-miterlimit: 2;
 }
+
 #banner {
-    border: 1px solid green;
-    background: #f4f4f4;
+    border: 2px solid green;
+    background: #151515;
     box-sizing: border-box;
     width: 100%;
     padding: 15px;
 }
+
 #LOCKUP {
     fill: green
 }
+
 .cols {
     display: flex;
     column-gap: 30px;
 }
+
 .cols div {
     flex: 1;
 }
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 30px;
 }
-
 
 .active {
     font-weight: bold;
