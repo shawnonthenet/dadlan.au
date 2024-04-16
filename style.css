@@ -89,6 +89,17 @@ footer {
     margin-top: 50px;
 }
 
+.discord-name {
+    margin-top: -15px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.discord-name img {
+    height: 16px;
+    vertical-align: middle;
+}
+
 @media only screen and (max-width: 1024px) {
     
     .cols, .grid {
