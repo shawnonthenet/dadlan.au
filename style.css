@@ -15,26 +15,39 @@ a {
 
 header {
     display: flex;
+    padding: 10px 0;
 }
 
 header nav {
     flex: 1;
     align-items: flex-end;
-    text-align: right;
 }
-
 header nav a {
     font-size: 22px;
 }
 
-#logo {
-    display: block;
-    width: 100px;
-    height: auto;
-    fill-rule: evenodd;
-    clip-rule: evenodd;
-    stroke-linejoin: round;
-    stroke-miterlimit: 2;
+.logo-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+nav {
+    margin-left: auto;
+    text-align: right;
+}
+
+nav a {
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a.active {
+    font-weight: bold; /* Example style for active link */
 }
 
 #banner {
