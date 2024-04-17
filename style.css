@@ -47,24 +47,7 @@ nav a {
 }
 
 nav a.active {
-    font-weight: bold; /* Example style for active link */
-}
-
-#banner {
-    border: 3px solid rgb(0, 165, 0);
-    background: green;
-    box-sizing: border-box;
-    color: rgb(255, 255, 255);
-    width: 100%;
-    padding: 15px;
-}
-
-#banner a {
-    text-decoration: none;
-}
-
-#LOCKUP {
-    fill: green
+    font-weight: bold;
 }
 
 .cols {
