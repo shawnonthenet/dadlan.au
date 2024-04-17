@@ -123,9 +123,34 @@ footer {
     vertical-align: middle;
 }
 
+
+.partner {
+    display: flex;
+    margin: 30px 0;
+    column-gap: 30px;
+}
+
+.partner a {
+    width: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.partner a img {
+    display: block;
+    width: 100%;
+}
+
 @media only screen and (max-width: 1024px) {
     
     .cols, .grid {
+        display: block;
+    }
+
+    .partner {
         display: block;
     }
 }
