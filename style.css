@@ -144,6 +144,10 @@ footer {
     width: 100%;
 }
 
+.event-list a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 1024px) {
     
     .cols, .grid {
