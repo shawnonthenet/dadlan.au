@@ -90,6 +90,22 @@ footer {
     margin-top: 50px;
 }
 
+#banner {
+    border: 3px solid rgb(0, 165, 0);
+    background: rgba(0, 128, 0, 0.485);
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    display: block;
+}
+
+#banner img {
+    height: 16px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 10px;
+}
+
 .discord-name {
     margin-top: -15px;
     font-size: 16px;
