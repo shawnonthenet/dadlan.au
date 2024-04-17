@@ -98,13 +98,18 @@ footer {
     padding: 15px;
     display: block;
     font-size: 18px;
+    text-decoration: none;
+}
+
+#banner:hover {
+    background-color: rgba(0, 128, 0, 0.7); /* Change background color on hover */
 }
 
 #banner img {
     height: 16px;
     vertical-align: middle;
     display: inline-block;
-    margin-right: 10px;
+    float: right;
 }
 
 .discord-name {
