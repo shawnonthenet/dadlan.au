@@ -1,5 +1,5 @@
 body {
-    background: #101010;
+    background: #000;
     color: green;
     font-family: 'Courier New', Courier, monospace;
     max-width: 800px;
@@ -90,7 +90,7 @@ footer {
     margin-top: 50px;
 }
 
-#banner {
+.banner {
     border: 3px solid rgb(0, 165, 0);
     background: rgba(0, 128, 0, 0.485);
     box-sizing: border-box;
@@ -101,14 +101,13 @@ footer {
     text-decoration: none;
 }
 
-#banner:hover {
+.banner:hover {
     background-color: rgba(0, 128, 0, 0.7); /* Change background color on hover */
 }
 
-#banner img {
+.banner img {
     height: 16px;
     vertical-align: middle;
-    display: inline-block;
     float: right;
 }
 
@@ -122,7 +121,6 @@ footer {
     height: 16px;
     vertical-align: middle;
 }
-
 
 .partner {
     display: flex;
@@ -148,6 +146,28 @@ footer {
     text-decoration: none;
 }
 
+#membership-helps {
+    padding: 0;
+    margin: 0;
+    row-gap: 30px;
+}
+
+#membership-helps li {
+    list-style: none;
+    border: 1px solid green;
+    padding: 10px;
+    background: rgba(0, 128, 0, 0.1);
+    text-align: center;;
+}
+
+#constitution {
+    font-weight: bold;
+}
+
+#options li {
+    margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 1024px) {
     
     .cols, .grid {
@@ -156,6 +176,10 @@ footer {
 
     .partner {
         display: block;
+    }
+
+    #membership-helps li {
+        margin-bottom: 30px;
     }
 }
 
