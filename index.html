@@ -56,6 +56,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sansp" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 </head>
 
 <body>
@@ -126,46 +129,37 @@
 
         <h2>Past Events</h2>
 
-        <div class="grid">
+        <div class="slick-carousel">
             <div>
                 <p>October 2023</p>
-                <img src="/assets/dadlan-october-2023.jpg" alt="DadLAN October 2023" loading="lazy" width="800"
-                    style="display: block; max-width: 100%">
+                <img class="carousel-image" src="/assets/dadlan-october-2023.jpg" alt="DadLAN October 2023" loading="lazy">
             </div>
-
             <div>
                 <p>November 2023</p>
-                <img src="/assets/dadlan-november-2023.jpg" alt="DadLAN November 2023" loading="lazy" width="800"
-                    style="display: block; max-width: 100%">
+                <img class="carousel-image" src="/assets/dadlan-november-2023.jpg" alt="DadLAN November 2023" loading="lazy">
             </div>
             <div>
                 <p>December 2023</p>
-                <img src="/assets/dadlan-december-2023.jpg" alt="DadLAN December 2023" loading="lazy" width="800"
-                    style="display: block; max-width: 100%">
+                <img class="carousel-image" src="/assets/dadlan-december-2023.jpg" alt="DadLAN December 2023" loading="lazy">
             </div>
-
             <div>
                 <p>January 2024</p>
-                <img src="/assets/dadlan-january-2024.jpg" alt="DadLAN January 2024" loading="lazy" width="800"
-                    style="display: block; max-width: 100%">
+                <img class="carousel-image" src="/assets/dadlan-january-2024.jpg" alt="DadLAN January 2024" loading="lazy">
             </div>
             <div>
                 <p>February 2024</p>
-                <img src="/assets/dadlan-february-2024.jpg" alt="DadLAN February 2024" loading="lazy" width="800"
-                    style="display: block; max-width: 100%">
+                <img class="carousel-image" src="/assets/dadlan-february-2024.jpg" alt="DadLAN February 2024" loading="lazy">
             </div>
             <div>
                 <p>March 2024</p>
-                <img src="/assets/dadlan-march-2024.jpg" alt="DadLAN March 2024" loading="lazy" width="800"
-                    style="display: block; max-width: 100%">
+                <img class="carousel-image" src="/assets/dadlan-march-2024.jpg" alt="DadLAN March 2024" loading="lazy">
             </div>
             <div>
                 <p>April 2024</p>
-                <img src="/assets/dadlan-april-2024.jpg" alt="DadLAN April 2024" loading="lazy" width="800"
-                    style="display: block; max-width: 100%">
+                <img class="carousel-image" src="/assets/dadlan-april-2024.jpg" alt="DadLAN April 2024" loading="lazy">
             </div>
         </div>
-
+    
         <div style="text-align: center;">
             <br>
             <p>
@@ -179,6 +173,19 @@
     <footer class="footer">
         &copy; 2024 DadLAN Ltd | <a href="https://www.acnc.gov.au/charity/charities/b4327b23-c8e9-ee11-a203-002248122b18/profile">Registered Charity</a>
     </footer>
+
+    <script>
+        $(document).ready(function(){
+            $('.slick-carousel').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2500,
+            });
+        });
+    </script>
+	
 
 </body>
 
