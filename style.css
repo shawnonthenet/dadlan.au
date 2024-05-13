@@ -55,7 +55,7 @@ header nav a {
     font-size: 20px;
 }
 
-header img {
+header img:hover {
     filter: brightness(0) invert(1) grayscale(1);
 }
 
