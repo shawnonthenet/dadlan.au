@@ -223,7 +223,62 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid rgb(108, 49, 110);
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background: rgba(82, 44, 83, 0.485);
+}
+
+.social-bar .social-icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+.social-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+
+
+#community-social {
+    padding: 0;
+    margin: 0;
+    row-gap: 30px;
+}
+
+.community-social-icon {
+    border: 3px solid rgb(108, 49, 110);
+    background: rgba(82, 44, 83, 0.485);
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    padding: 1px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.social-list img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
 }
 
 @media only screen and (max-width: 1024px) {

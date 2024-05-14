@@ -54,7 +54,6 @@
     <title>DadLAN Australia : Events</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -76,6 +75,52 @@
 
     <div class="content">
         <div>
+            <h1>Next Event</h1>
+            <p>Our next event is <strong>Sunday May 19th</strong>. The main event runs from <strong>2pm to 5pm AEST</strong>.</p>
+            <p>Each venue may have slightly different timing. Please make sure you bring your laptop / computer, input devices, and a small power board.</p>
+
+            <h2>Event Tickets</h2>
+            <p>Tickets for the events across the country can be collected <a href="https://events.humanitix.com/host/dadlan">here</a>.</p>
+
+            <h2>Event Schedule</h2>
+            <p>All subnets follow the same schedule, which ensures the DadLAN events sync up nation-wide.</p>
+            <p><i>All times below in AEST.</i></p>
+
+            <table style="color:white; padding: 20px;">
+                <tr>
+                    <th>Time</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Venue specific</td>
+                    <td>Arrive at venue, set up</td>
+                </tr>
+                <tr>
+                    <td>2:00pm (1400)</td>
+                    <td>Subnet Game of Choice</td>
+                </tr>
+                <tr>
+                    <td>3:15pm (1515)</td>
+                    <td>Intermission, Pizza / Food</td>
+                </tr>
+                <tr>
+                    <td>3:30pm (1530)</td>
+                    <td>All subnets play <strong>Battlefield 2</strong></td>
+                </tr>
+                <tr>
+                    <td>5:00pm (1700)</td>
+                    <td>Main event concludes</td>
+                </tr>
+                <tr>
+                    <td>5:30pm (1730)</td>
+                    <td>Depart venue</td>
+                </tr>
+            </table>
+        </div>
+
+        <br>
+
+        <div>
             <h1>Future Event Dates</h1>
             <p>We run events every month in cities across Australia. We play from 1 - 5pm AEST and have a pizza break in the
                 middle. Bring a computer or use one of our many spares</p>
@@ -92,47 +137,43 @@
             </ul>
         </div>
 
-        <div>
-            <h1>Current Events</h1>
+        <!-- <div>
+            <h1>Scheduled Events</h1>
             <br>
-
-            <iframe id="iframe-container"
-                src="https://events.humanitix.com/event-listings?w=true&u=X8mX3uefoZXYPYzlOoRnQAIwRZv1&o=651415f926580f0f3dc4f3ac&bc=%23008000&bt=Get%20Tickets&tc=%23FFFFFF"
-                width="100%" height="1000px" frameborder="0" style="background: rgb(0, 0, 0);"></iframe>
+            <iframe id="iframe-container" src="https://events.humanitix.com/event-listings?w=true&u=NX22zxK5DbWNWy1MbDt1hYSfctp1&o=651415f926580f0f3dc4f3ac&bc=%23353337&bt=Get%20Tickets&tc=%23FFFFFF" width="100%" height="600px" frameborder="0"></iframe>
             <script>
                 window.addEventListener('message', function (e) {
-                    if (!e.origin.endsWith(".humanitix.com")) {
+                    if (!e.origin.endsWith(".humanitix.com")){
                         return;
-                    }
+                    }   
                     var messageData = e.data;
                     var iframeEl = document.getElementById('iframe-container');
                     if (iframeEl && messageData && !isNaN(messageData.scrollHeight) && messageData.location === iframeEl.src) {
-                        iframeEl.style.height = messageData.scrollHeight + 20 + 'px';
-                    }
+                        iframeEl.style.height = messageData.scrollHeight + 20 + 'px'; }
                 }, false);
             </script>
-        </div>
+        </div> -->
     </div>
 
     <footer class="footer">
         <div class="social-bar">
             <a href="https://twitter.com/DadLAN_au" aria-label="Twitter" target="_blank">
-                <i class="fab fa-twitter fa-lg" ></i>
+                <img class="social-icon" src="/assets/icons/x-twitter.svg" alt="Twitter">
             </a>
             <a href="https://github.com/dadlan-au" aria-label="Github" target="_blank">
-                <i class="fab fa-github fa-lg"></i>
+                <img class="social-icon" src="/assets/icons/github.svg" alt="Github">
             </a>
             <a href="https://www.linkedin.com/company/dadlan-au" aria-label="LinkedIn" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
+                <img class="social-icon" src="/assets/icons/linkedin.svg" alt="LinkedIn">
             </a>
-            <a href="https://www.facebook.com/groups/dadlanau" aria-label="Facebook" target="_blank">
-                <i class="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com/dadlanau" aria-label="Facebook" target="_blank">
+                <img class="social-icon" src="/assets/icons/facebook.svg" alt="Facebook">
             </a>
             <a href="https://www.instagram.com/dadlan_aus" aria-label="Instagram" target="_blank">
-                <i class="fab fa-instagram"></i>
+                <img class="social-icon" src="/assets/icons/instagram.svg" alt="Instagram">
             </a>
             <a href="https://discord.gg/dadlan" aria-label="Discord" target="_blank">
-                <i class="fab fa-discord"></i>
+                <img class="social-icon" src="/assets/icons/discord.svg" alt="Discord">
             </a>
         </div>
         <br>
