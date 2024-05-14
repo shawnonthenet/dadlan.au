@@ -1,19 +1,35 @@
 body {
-    background: #000;
-    color: green;
+    background: #171717;
+    color: white;
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 300;
     font-style: normal;
     max-width: 800px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 0 20px;
     font-size: 1.15em;
     line-height: 1.3;
+    background-image: url('/assets/bg-TopTile.png'), url('/assets/bg-BottomTile.png');
+    background-position: top center, bottom center;
+    background-repeat: repeat-x, repeat-x; /* Tile horizontally */
+    background-size: auto, auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    padding: 20px;
 }
 
 h1, h2, h3 {
-  font-weight: 400;
-  font-style: normal;
+    font-weight: 400;
+    font-style: normal;
 }
 
 p, ul, li {
@@ -27,7 +43,8 @@ a {
 
 header {
     display: flex;
-    padding: 10px 0;
+    padding: 20px 0;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
 header nav {
@@ -35,6 +52,10 @@ header nav {
 }
 header nav a {
     font-size: 20px;
+}
+
+header img:hover {
+    filter: brightness(0) invert(1) grayscale(1);
 }
 
 .logo-nav-container {
@@ -46,7 +67,6 @@ header nav a {
     margin-right: 20px;
 }
 
-
 nav a {
     text-decoration: none;
 }
@@ -57,6 +77,7 @@ nav a:not(:first-child) {
 
 nav a.active {
     font-weight: 500;
+    font-weight: bold;
 }
 
 .cols {
@@ -100,18 +121,17 @@ footer {
 }
 
 .banner {
-    border: 3px solid rgb(0, 165, 0);
-    background: rgba(0, 128, 0, 0.485);
+    border: 3px solid rgb(108, 49, 110);
+    background: rgba(82, 44, 83, 0.485);
     box-sizing: border-box;
     color: rgb(255, 255, 255);
     padding: 15px;
     display: block;
-    font-size: 18px;
     text-decoration: none;
 }
 
 .banner:hover {
-    background-color: rgba(0, 128, 0, 0.7); /* Change background color on hover */
+    background-color: rgba(117, 51, 119, 0.7);
 }
 
 .banner img {
@@ -135,6 +155,7 @@ footer {
     display: flex;
     margin: 30px 0;
     column-gap: 30px;
+    align-items: center;
 }
 
 .partner a {
@@ -163,9 +184,9 @@ footer {
 
 #membership-helps li {
     list-style: none;
-    border: 1px solid green;
+    border: 1px solid rgb(108, 49, 110);
     padding: 10px;
-    background: rgba(0, 128, 0, 0.1);
+    background: rgba(82, 44, 83, 0.1);
     text-align: center;;
 }
 
@@ -175,6 +196,89 @@ footer {
 
 #options li {
     margin-bottom: 10px;
+}
+
+.carousel-image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.slick-nav {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.slick-nav img {
+    width: 95%;
+}
+
+.logo-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid rgb(108, 49, 110);
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background: rgba(82, 44, 83, 0.485);
+}
+
+.social-bar .social-icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+.social-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+
+
+#community-social {
+    padding: 0;
+    margin: 0;
+    row-gap: 30px;
+}
+
+.community-social-icon {
+    border: 3px solid rgb(108, 49, 110);
+    background: rgba(82, 44, 83, 0.485);
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    padding: 1px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.social-list img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
 }
 
 @media only screen and (max-width: 1024px) {

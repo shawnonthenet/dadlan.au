@@ -12,8 +12,23 @@
             place-items: center;
             height: 100vh;
             background-color: #141414;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            font-family: "IBM Plex Sans", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-weight: 300;
+            font-style: normal;
+            background-image: url('/assets/bg-Top.png'), url('/assets/bg-Bottom.png');
+            background-position: top center, bottom center;
+            background-repeat: no-repeat;
+            background-size:contain;
         }
+
+
+
+
         .download-link {
             text-align: center;
             padding: 20px 0;
@@ -46,6 +61,23 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            text-shadow: 0px 0px 5px rgb(0, 0, 0);
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .download-link a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-size: 25px;
+        }
     </style>
 </head>
 <body>
@@ -59,6 +91,10 @@
 		<p>
 		<c> PRINT IT OFF AND SHARE WITH FRIENDS </c>
     </div>
+
+    <footer class="footer">
+        &copy; 2024 DadLAN Ltd | <a href="https://www.acnc.gov.au/charity/charities/b4327b23-c8e9-ee11-a203-002248122b18/profile">Registered Charity</a>
+    </footer>
 
 </body>
 </html>
